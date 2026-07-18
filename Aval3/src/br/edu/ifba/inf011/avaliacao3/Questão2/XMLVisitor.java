@@ -11,7 +11,7 @@ import br.edu.ifba.inf011.model.playlist.Video;
 
 public class XMLVisitor implements PlaylistVisitor {
 
-    private StringBuilder xml = new StringBuilder();
+    private final StringBuilder xml = new StringBuilder();
 
     public XMLVisitor() {
         xml.append("<playlist>\n");
