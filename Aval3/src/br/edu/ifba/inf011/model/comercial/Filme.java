@@ -1,7 +1,6 @@
 package br.edu.ifba.inf011.model.comercial;
 
 import br.edu.ifba.inf011.avaliacao1.timeline.builder.Timeline;
-import br.edu.ifba.inf011.model.playlist.PlaylistItem;
 import br.edu.ifba.inf011.model.playlist.PlaylistVisitor;
 
 public class Filme implements ProdutoComercial{

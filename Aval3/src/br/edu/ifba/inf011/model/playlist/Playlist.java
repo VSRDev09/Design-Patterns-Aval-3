@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifba.inf011.avaliacao3.Questão2.BandwidthVisitor;
+import br.edu.ifba.inf011.avaliacao3.Questão2.PlaylistNameReportVisitor;
 import br.edu.ifba.inf011.avaliacao3.Questão2.XMLVisitor;
 
 public class Playlist {
@@ -37,5 +38,17 @@ public class Playlist {
 
         return visitor.getBandwidth();
     }
+
+    public String getPlaylistNameReport() {
+    
+    PlaylistNameReportVisitor visitor = new PlaylistNameReportVisitor();
+    
+    for (PlaylistItem item : this.items) { 
+        item.accept(visitor);
+    }
+    
+    return visitor.getReport();
+}
+
 
 }

@@ -1,7 +1,7 @@
 package br.edu.ifba.inf011.avaliacao3.Questão1;
 
-import br.edu.ifba.inf011.model.playlist.PlaylistItem;
 import br.edu.ifba.inf011.model.comercial.Pacote;
+import br.edu.ifba.inf011.model.comercial.ProdutoComercial;
 
 public class PacoteBuilder {
 
@@ -11,7 +11,7 @@ public class PacoteBuilder {
         pacote = new Pacote(titulo);
     }
 
-    public PacoteBuilder addItem(PlaylistItem item) {
+    public PacoteBuilder addItem(ProdutoComercial item) {
         pacote.addItem(item);
         return this;
     }

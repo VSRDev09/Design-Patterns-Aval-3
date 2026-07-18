@@ -2,22 +2,20 @@ package br.edu.ifba.inf011.model.comercial;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import br.edu.ifba.inf011.model.playlist.PlaylistItem;
 import br.edu.ifba.inf011.model.playlist.PlaylistVisitor;
 
-public class Pacote implements PlaylistItem {
+public class Pacote implements ProdutoComercial {
 
 	protected String titulo;
-	protected List<PlaylistItem> itens;
+	protected List<ProdutoComercial> itens;
 
 	public Pacote(String titulo) {
 		this.titulo = titulo;
-		this.itens = new ArrayList<PlaylistItem>();
+		this.itens = new ArrayList<ProdutoComercial>();
 	};
 
-	public Pacote(String titulo, List<PlaylistItem> itens) {
+	public Pacote(String titulo, List<ProdutoComercial> itens) {
 		this.titulo = titulo;
 		this.itens = itens;
 	};
@@ -26,27 +24,23 @@ public class Pacote implements PlaylistItem {
 		return this.titulo;
 	}
 
-	public void addItem(PlaylistItem item) {
+	public void addItem(ProdutoComercial item) {
 		itens.add(item);
 	}
 
-	public List<PlaylistItem> getItens() {
+	public List<ProdutoComercial> getItens() {
 		return itens;
 	}
 
 	public Double getPreco() {
 		return itens.stream()
-				.filter(item -> item instanceof ProdutoComercial)
-				.map(item -> (ProdutoComercial) item)
 				.mapToDouble(ProdutoComercial::getPreco)
 				.sum() * 0.9;
 	}
 
-	public Double getDuracao() {
+	public Integer getDuracao() {
 		return itens.stream()
-				.filter(item -> item instanceof ProdutoComercial)
-				.map(item -> (ProdutoComercial) item)
-				.mapToDouble(ProdutoComercial::getDuracao)
+				.mapToInt(ProdutoComercial::getDuracao)
 				.sum();
 	}
 
